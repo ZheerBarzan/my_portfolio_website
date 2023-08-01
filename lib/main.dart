@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio_website/desktop/desktop_view.dart';
+import 'package:my_portfolio_website/header/header_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,30 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: "Mr.ZHEER",
       debugShowCheckedModeBanner: false,
-      home: DesktopView(),
+      home: PortfolioView(),
+    );
+  }
+}
+
+class PortfolioView extends StatelessWidget {
+  const PortfolioView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(children: [
+          HeaderView(height: height, width: width),
+          Container(
+            height: height,
+            width: width,
+            color: Colors.blue,
+          ),
+        ]),
+      ),
     );
   }
 }
