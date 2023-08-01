@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -16,7 +17,7 @@ class HeaderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (_, size) {
-        if (size.isMobile) return HeaderMobileView();
+        if (size.isMobile) return const HeaderMobileView();
         return Container(
           height: height,
           width: width * 0.8,
@@ -37,9 +38,9 @@ class HeaderView extends StatelessWidget {
 }
 
 class HeaderBody extends StatelessWidget {
-  const HeaderBody({
-    super.key,
-  });
+  final bool? isMobile;
+
+  const HeaderBody({super.key, this.isMobile});
 
   @override
   Widget build(BuildContext context) {
@@ -47,20 +48,23 @@ class HeaderBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        AutoSizeText(
           "I'm a Mobile/Game ",
           style: GoogleFonts.montserrat(fontSize: 60),
+          maxLines: 1,
         ),
-        Text(
+        AutoSizeText(
           "Developer </> ",
           style: GoogleFonts.montserrat(fontSize: 60),
+          maxLines: 1,
         ),
         const SizedBox(
           height: 40,
         ),
-        Text(
+        AutoSizeText(
           "Computer Engineer mainly working on App/Game development with Flutter framework, Python and Unreal Engine. ",
           style: GoogleFonts.montserrat(fontSize: 24),
+          maxLines: 3,
         ),
         const SizedBox(
           height: 40,
@@ -76,7 +80,10 @@ class HeaderBody extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 15),
+            padding: EdgeInsets.symmetric(
+              vertical: isMobile ?? false ? 10 : 15,
+              horizontal: isMobile ?? false ? 10 : 15,
+            ),
             child: Text(
               "Email Me",
               style: GoogleFonts.montserrat(fontSize: 24),
@@ -111,7 +118,9 @@ class HeaderMobileView extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const HeaderBody(),
+            const HeaderBody(
+              isMobile: true,
+            ),
           ],
         ),
       ),
