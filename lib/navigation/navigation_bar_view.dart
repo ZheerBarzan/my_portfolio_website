@@ -15,7 +15,7 @@ class NavigationBarView extends StatelessWidget {
       size,
     ) {
       final onPressed = () => print("click");
-      final text = "about me";
+
       return Container(
         height: 100,
         width: width * 0.8,
@@ -24,13 +24,25 @@ class NavigationBarView extends StatelessWidget {
           children: [
             const FlutterLogo(),
             const Spacer(),
-            NavigationBarItem(onPressed: onPressed, text: text),
-            NavigationBarItem(onPressed: onPressed, text: text),
+            for (var item in NavigationItem.navigationItems)
+              NavigationBarItem(onPressed: onPressed, text: item.text)
           ],
         ),
       );
     });
   }
+}
+
+class NavigationItem {
+  final String text;
+  NavigationItem(this.text);
+
+  static final navigationItems = [
+    NavigationItem("project"),
+    NavigationItem("Skills"),
+    NavigationItem("blog"),
+    NavigationItem("about me"),
+  ];
 }
 
 class NavigationBarItem extends StatelessWidget {
