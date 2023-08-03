@@ -54,29 +54,30 @@ class DrawerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (_, size) {
-        if (!size.isMobile) return SizedBox();
+        if (!size.isMobile) return const SizedBox();
         return Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
               const DrawerHeader(
                 decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white,
+                      Colors.blue,
+                    ],
+                  ),
                   color: Colors.blue,
                 ),
-                child: Text("drawer header"),
+                child: Text("Z H E E R  B A R Z A N"),
               ),
-              ListTile(
-                title: const Text('item 1'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('item 2'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
+              for (var item in NavigationItem.navigationItems)
+                ListTile(
+                  title: Text(item.text),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
             ],
           ),
         );

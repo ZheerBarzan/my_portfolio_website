@@ -52,10 +52,10 @@ class NavigationItem {
   NavigationItem(this.text);
 
   static final navigationItems = [
-    NavigationItem("project"),
+    NavigationItem("Projects"),
     NavigationItem("Skills"),
-    NavigationItem("blog"),
-    NavigationItem("about me"),
+    NavigationItem("Blog"),
+    NavigationItem("About Me"),
   ];
 }
 
@@ -71,6 +71,7 @@ class NavigationBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isSmall = MediaQuery.of(context).size.width < 900;
     return Padding(
       padding: const EdgeInsets.only(left: 64),
       child: InkWell(
@@ -78,7 +79,7 @@ class NavigationBarItem extends StatelessWidget {
         onTap: onPressed,
         child: Text(
           text,
-          style: GoogleFonts.montserrat(fontSize: 24),
+          style: GoogleFonts.montserrat(fontSize: isSmall ? 17 : 24),
         ),
       ),
     );
