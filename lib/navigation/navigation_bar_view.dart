@@ -18,7 +18,7 @@ class NavigationBarView extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(children: [
-              const FlutterLogo(),
+              Image.asset("assets/images/logo.png"),
               const Spacer(),
               IconButton(
                   onPressed: () {
@@ -36,7 +36,7 @@ class NavigationBarView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           children: [
-            const FlutterLogo(),
+            Image.asset("assets/images/logo.png"),
             const Spacer(),
             for (var item in NavigationItem.navigationItems)
               NavigationBarItem(onPressed: onPressed, text: item.text)

@@ -21,13 +21,17 @@ class HeaderView extends StatelessWidget {
         return Container(
           height: height,
           width: width * 0.8,
-          child: const Row(
+          child: Row(
             children: [
-              Expanded(
+              const Expanded(
                 child: HeaderBody(),
               ),
-              FlutterLogo(
-                size: 300,
+              Expanded(
+                child: Image.asset(
+                  "assets/images/me.png",
+                  height: 1080,
+                  width: 1000,
+                ),
               ),
             ],
           ),
@@ -44,53 +48,56 @@ class HeaderBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AutoSizeText(
-          "I'm a Mobile/Game ",
-          style: GoogleFonts.montserrat(fontSize: 60),
-          maxLines: 1,
-        ),
-        AutoSizeText(
-          "Developer </> ",
-          style: GoogleFonts.montserrat(fontSize: 60),
-          maxLines: 1,
-        ),
-        const SizedBox(
-          height: 40,
-        ),
-        AutoSizeText(
-          "Computer Engineer mainly working on App/Game development with Flutter framework, Python and Unreal Engine. ",
-          style: GoogleFonts.montserrat(fontSize: 24),
-          maxLines: 3,
-        ),
-        const SizedBox(
-          height: 40,
-        ),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.redAccent,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AutoSizeText(
+            "I'm a Mobile/Game ",
+            style: GoogleFonts.montserrat(fontSize: 60),
+            maxLines: 1,
+          ),
+          AutoSizeText(
+            "Developer </> ",
+            style: GoogleFonts.montserrat(fontSize: 60),
+            maxLines: 1,
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          AutoSizeText(
+            "Computer Engineer mainly working on App/Game development with Flutter framework, Python and Unreal Engine. ",
+            style: GoogleFonts.montserrat(fontSize: 24),
+            maxLines: 3,
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.redAccent,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15),
+                ),
               ),
             ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: isMobile ?? false ? 10 : 15,
-              horizontal: isMobile ?? false ? 10 : 15,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: isMobile ?? false ? 10 : 15,
+                horizontal: isMobile ?? false ? 10 : 15,
+              ),
+              child: Text(
+                "Email Me",
+                style: GoogleFonts.montserrat(fontSize: 24),
+              ),
             ),
-            child: Text(
-              "Email Me",
-              style: GoogleFonts.montserrat(fontSize: 24),
-            ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
@@ -112,8 +119,8 @@ class HeaderMobileView extends StatelessWidget {
         width: width,
         child: Column(
           children: [
-            FlutterLogo(
-              size: height * 0.3,
+            Image.asset(
+              "assets/images/me.png",
             ),
             const SizedBox(
               height: 30,
