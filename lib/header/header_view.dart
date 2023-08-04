@@ -15,11 +15,14 @@ class HeaderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final isSmall = width < 800;
+    final imageWidth = width * 0.47;
     return ResponsiveBuilder(
       builder: (_, size) {
         if (size.isMobile) return const HeaderMobileView();
         return Container(
-          height: height,
+          height: height * 0.9,
           width: width * 0.8,
           child: Row(
             children: [
@@ -29,7 +32,7 @@ class HeaderView extends StatelessWidget {
               Expanded(
                 child: Image.asset(
                   "assets/images/me.png",
-                  height: 1080,
+                  height: isSmall ? imageWidth : 1080,
                   width: 1000,
                 ),
               ),
@@ -55,12 +58,12 @@ class HeaderBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AutoSizeText(
-            "I'm a Mobile/Game ",
+            "I'm a Mobile</>Game ",
             style: GoogleFonts.montserrat(fontSize: 60),
             maxLines: 1,
           ),
           AutoSizeText(
-            "Developer </> ",
+            "Developer.",
             style: GoogleFonts.montserrat(fontSize: 60),
             maxLines: 1,
           ),

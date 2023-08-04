@@ -30,17 +30,20 @@ class NavigationBarView extends StatelessWidget {
         );
       }
       final onPressed = () => print("click");
-      return Container(
-        height: 100,
-        width: width * 0.8,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
-          children: [
-            Image.asset("assets/images/logo.png"),
-            const Spacer(),
-            for (var item in NavigationItem.navigationItems)
-              NavigationBarItem(onPressed: onPressed, text: item.text)
-          ],
+      return Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: Container(
+          height: 100,
+          width: width * 0.8,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Image.asset("assets/images/logo.png"),
+              const Spacer(),
+              for (var item in NavigationItem.navigationItems)
+                NavigationBarItem(onPressed: onPressed, text: item.text)
+            ],
+          ),
         ),
       );
     });
