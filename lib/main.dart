@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_website/header/header_view.dart';
 import 'package:my_portfolio_website/navigation/navigation_bar_view.dart';
+import 'package:my_portfolio_website/project/project_view.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 void main() {
@@ -35,6 +36,7 @@ class PortfolioView extends StatelessWidget {
           children: [
             const NavigationBarView(),
             HeaderView(height: height, width: width),
+            const ProjectView(),
             Container(
               height: height,
               width: width,
