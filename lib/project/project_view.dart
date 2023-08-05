@@ -35,16 +35,56 @@ class ProjectDesktopView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       height: height * 0.9,
       width: width * 0.8,
-      color: Colors.red,
+      //color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AutoSizeText(
             "Projects",
             style: GoogleFonts.montserrat(fontSize: 60),
+          ),
+          Row(
+            children: [
+              for (var items in ProjectItems)
+                Expanded(
+                    child: Column(
+                  children: [
+                    Image.asset(
+                      items.image,
+                      height: 500,
+                    )
+                  ],
+                ))
+            ],
           )
         ],
       ),
     );
   }
 }
+
+class ProjectItem {
+  final String image;
+  final String title;
+  final String description;
+  final List<String> technologies;
+
+  ProjectItem({
+    required this.image,
+    required this.title,
+    required this.description,
+    required this.technologies,
+  });
+}
+
+final ProjectItems = [
+  ProjectItem(
+      image: "images/gauss.png",
+      title: "Project gauss",
+      description:
+          "A calculator application that is built for IOS and Android and named after the great German mathematician Johann Carl Friedrich Gauss.",
+      technologies: [
+        'Flutter',
+        'Dart',
+      ])
+];
