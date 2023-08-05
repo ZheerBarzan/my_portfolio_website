@@ -32,8 +32,8 @@ class HeaderView extends StatelessWidget {
               Expanded(
                 child: Image.asset(
                   "assets/images/me.png",
-                  height: isSmall ? imageWidth : 1080,
-                  width: 1000,
+                  height: isSmall ? imageWidth : 680,
+                  width: 900,
                 ),
               ),
             ],
@@ -58,14 +58,9 @@ class HeaderBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AutoSizeText(
-            "I'm a Mobile</>Game ",
+            "I'm a Mobile</> \nGame Developer.",
             style: GoogleFonts.montserrat(fontSize: 60),
-            maxLines: 1,
-          ),
-          AutoSizeText(
-            "Developer.",
-            style: GoogleFonts.montserrat(fontSize: 60),
-            maxLines: 1,
+            maxLines: 2,
           ),
           const SizedBox(
             height: 40,
