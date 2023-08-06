@@ -79,12 +79,30 @@ class ProjectItem {
 
 final ProjectItems = [
   ProjectItem(
-      image: "images/gauss.png",
+      image: "images/1.png",
       title: "Project gauss",
       description:
           "A calculator application that is built for IOS and Android and named after the great German mathematician Johann Carl Friedrich Gauss.",
       technologies: [
         'Flutter',
         'Dart',
-      ])
+      ]),
+  ProjectItem(
+    image: "images/2.png",
+    title: "MineSweeper Game",
+    description: "A simple retro game of minesweeper ",
+    technologies: [
+      "Flutter",
+      "Dart",
+    ],
+  ),
+  ProjectItem(
+    image: "images/chess.png",
+    title: "Chess Game",
+    description: "comming soon ",
+    technologies: [
+      "Flutter",
+      "Dart",
+    ],
+  ),
 ];
