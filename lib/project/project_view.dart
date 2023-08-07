@@ -43,19 +43,47 @@ class ProjectDesktopView extends StatelessWidget {
             "Projects",
             style: GoogleFonts.montserrat(fontSize: 60),
           ),
-          Row(
-            children: [
-              for (var items in ProjectItems)
-                Expanded(
-                    child: Column(
-                  children: [
-                    Image.asset(
-                      items.image,
-                      height: 500,
-                    )
-                  ],
-                ))
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (var items in ProjectItems)
+                  Expanded(
+                      child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        items.image,
+                        height: 500,
+                      ),
+                      Text(
+                        items.title,
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                      const SizedBox(),
+                      Text(
+                        items.description,
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Row(
+                          children: [
+                            for (final tech in items.technologies)
+                              Padding(
+                                padding: const EdgeInsets.only(right: 5),
+                                child: Chip(
+                                  label: Text(tech),
+                                ),
+                              )
+                          ],
+                        ),
+                      )
+                    ],
+                  ))
+              ],
+            ),
           )
         ],
       ),

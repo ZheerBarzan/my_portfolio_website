@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio_website/header/header_view.dart';
 import 'package:my_portfolio_website/navigation/navigation_bar_view.dart';
 import 'package:my_portfolio_website/project/project_view.dart';
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.cyan,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: const TextTheme(),
+        textTheme: TextTheme(
+            displayMedium:
+                GoogleFonts.montserrat(color: Colors.black, fontSize: 30)),
       ),
       home: const PortfolioView(),
     );
