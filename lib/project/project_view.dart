@@ -20,7 +20,26 @@ class ProjectMobileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final width = MediaQuery.of(context).size.width;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+
+      width: width,
+      //color: Colors.red,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Divider(
+            thickness: 3,
+          ),
+          AutoSizeText(
+            "Projects",
+            style: GoogleFonts.montserrat(fontSize: 60),
+          ),
+          for (var items in ProjectItems) ProjectItemBody(items: items),
+        ],
+      ),
+    );
   }
 }
 
@@ -49,39 +68,54 @@ class ProjectDesktopView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 for (var items in ProjectItems)
-                  Expanded(
-                      child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        items.image,
-                        height: 500,
-                      ),
-                      Text(
-                        items.title,
-                        style: Theme.of(context).textTheme.displayMedium,
-                      ),
-                      const SizedBox(),
-                      Text(
-                        items.description,
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Row(
-                          children: [
-                            for (final tech in items.technologies)
-                              Padding(
-                                padding: const EdgeInsets.only(right: 5),
-                                child: Chip(
-                                  label: Text(tech),
-                                ),
-                              )
-                          ],
-                        ),
-                      )
-                    ],
-                  ))
+                  Expanded(child: ProjectItemBody(items: items))
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class ProjectItemBody extends StatelessWidget {
+  const ProjectItemBody({
+    super.key,
+    required this.items,
+  });
+
+  final ProjectItem items;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            items.image,
+            height: 500,
+          ),
+          Text(
+            items.title,
+            style: Theme.of(context).textTheme.displayMedium,
+          ),
+          Text(
+            items.description,
+            style: const TextStyle(fontSize: 17),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              children: [
+                for (final tech in items.technologies)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 5),
+                    child: Chip(
+                      label: Text(tech),
+                    ),
+                  )
               ],
             ),
           )
