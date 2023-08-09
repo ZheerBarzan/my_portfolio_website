@@ -23,13 +23,12 @@ class ProjectMobileView extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-
       width: width,
       //color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Divider(
+          const Divider(
             thickness: 3,
           ),
           AutoSizeText(
@@ -97,9 +96,15 @@ class ProjectItemBody extends StatelessWidget {
             items.image,
             height: 500,
           ),
+          const SizedBox(
+            height: 10,
+          ),
           Text(
             items.title,
             style: Theme.of(context).textTheme.displayMedium,
+          ),
+          const SizedBox(
+            height: 10,
           ),
           Text(
             items.description,
@@ -142,7 +147,7 @@ class ProjectItem {
 final ProjectItems = [
   ProjectItem(
       image: "images/1.png",
-      title: "Project gauss",
+      title: "Project Gauss",
       description:
           "A calculator application that is built for IOS and Android and named after the great German mathematician Johann Carl Friedrich Gauss.",
       technologies: [
@@ -160,7 +165,7 @@ final ProjectItems = [
   ),
   ProjectItem(
     image: "images/chess.png",
-    title: "Chess Game",
+    title: "Project Kasparov",
     description: "comming soon ",
     technologies: [
       "Flutter",
