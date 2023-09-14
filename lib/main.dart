@@ -45,7 +45,7 @@ class PortfolioView extends StatelessWidget {
             const NavigationBarView(),
             HeaderView(height: height, width: width),
             const ProjectView(),
-            Container(height: height, width: width, color: Colors.blue),
+            Container(height: height, width: width, color: Colors.white),
           ],
         ),
       ),

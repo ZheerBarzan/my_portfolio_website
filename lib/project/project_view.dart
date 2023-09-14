@@ -166,7 +166,7 @@ final ProjectItems = [
   ProjectItem(
     image: "images/chess.png",
     title: "Project Kasparov",
-    description: "comming soon ",
+    description: "A 2 Player Chess game made entierly in Flutter ",
     technologies: [
       "Flutter",
       "Dart",
